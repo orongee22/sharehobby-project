@@ -1,3 +1,4 @@
+<%@page import="java.text.SimpleDateFormat"%>
 <%@page import="sharehobby.model.LoginInfo"%>
 <%@page import="sharehobby.model.BoardMusicList"%>
 <%@page import="sharehobby.service.BoardMusicListService"%>
@@ -8,8 +9,9 @@
 <%@ page trimDirectiveWhitespaces="true" %>
 
 <%
-	String uId = (String)session.getAttribute("u_id");
 	
+	
+	String uId = (String)session.getAttribute("u_id");
 		
 	String pageNumberstr = request.getParameter("page");
 	
@@ -21,6 +23,8 @@
 	
 	BoardMusicListService listService = BoardMusicListService.getInstance();
 	BoardMusicList viewData = listService.getBoardMusicListService(pageNumber);
+	
+	
 
 %>
 <!DOCTYPE html>
@@ -34,6 +38,9 @@
 
 </head>
 <body>
+	
+	<%
+		if(uId != null){ %>
 	<%@include file="../frame/header.jsp" %>
 	<%@include file="../frame/nav.jsp" %>
 		<div id="main">
@@ -48,6 +55,7 @@
 						<h3 class="viewStatus">등록된 게시글이 없습니다.</h3>	
 						<div id="content-wrap">	
 					<%	} else { %>
+							<p><%=viewData.getPostTotalCount() %>개의 게시글이 있습니다.</p>
 							<table border="1" style="border-collapse:collapse">
 								<thead>
 									<tr>
@@ -89,5 +97,13 @@
 			</div>
 		<div id="footer">
 		</div>
+		<% } else {
+			
+		%>
+		<script>
+			alert("해당 서비스는 로그인 한 회원만 이용 가능합니다.");
+			location.href="notLogin.jsp";
+		</script>
+		<% } %>
 </body>
 </html>

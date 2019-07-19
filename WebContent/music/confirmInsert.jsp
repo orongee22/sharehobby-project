@@ -36,6 +36,7 @@
 	<%} %>
 	
 	location.href="boardMusicList.jsp";
+	
 	</script>
 </body>
 </html>

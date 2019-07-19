@@ -1,24 +1,23 @@
-<%@page import="sharehobby.service.ModifyPostService"%>
+<%@page import="sharehobby.service.DeletePostListService"%>
+<%@page import="sharehobby.service.WritePostService"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
 	request.setCharacterEncoding("utf-8");
 
-%>
-
-<jsp:useBean id="modifypost" class="sharehobby.model.BoardPost" />
-<jsp:setProperty property="*" name="modifypost" />
-<jsp:setProperty property="*" name="modifypost" />
-<%
 	String bmNumstr = request.getParameter("bmNum");
-	
-	
 	int bmNum = 0;
-	if(bmNumstr!=null){
+	
+	if(bmNumstr != null){
 		bmNum = Integer.parseInt(bmNumstr);
+	} else {
+		
 	}
-	ModifyPostService service = ModifyPostService.getInstance();
-	int cnt = service.modifyPost(bmNum, modifypost);
+%>
+<%
+	DeletePostListService service = DeletePostListService.getInstance();
+	int rCnt = service.deletePost(bmNum);
+
 %>
 <!DOCTYPE html>
 <html>
@@ -31,18 +30,19 @@
 	
 <% 
 	
-	if(cnt>0){
+	if(rCnt>0){
 		
 	%>
-	alert("수정완료"); 
+	alert("게시글을 삭제했습니다."); 
 	
 	<%} else { %>
-		alert("수정실패!");
+		alert("삭제를 실패했습니다.");
 		
 		
 	<%} %>
 	
 	location.href="boardMusicList.jsp";
+	
 	</script>
 </body>
 </html>

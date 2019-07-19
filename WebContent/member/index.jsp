@@ -39,7 +39,7 @@
 	<hr>
 	<input type="button" value="exhb 게시판" onclick="location.href='../exhibit/exhbBoard.jsp'">
 	<input type = "button" value="EXHIBIT후기쓰기" onclick="location.href='../exhibit/writeExhbit.jsp'">
-	<input type = "button" value="Music게시판" onclick="location.href='../music/boardMusicListView.jsp'">
+	<input type = "button" value="Music게시판" onclick="location.href='../music/boardMusicList.jsp'">
 </body>
 </body>
 </html>

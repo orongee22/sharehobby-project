@@ -9,7 +9,6 @@ import java.text.SimpleDateFormat;
 import sharehobby.model.LoginInfo;
 import sharehobby.model.MemberInfo;
 
-
 public class MemberDao {
 	/* 싱글톤 처리 */
 	private static MemberDao dao = new MemberDao();

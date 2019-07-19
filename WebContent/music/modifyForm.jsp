@@ -8,17 +8,14 @@
     pageEncoding="UTF-8"%>
 <%@ page trimDirectiveWhitespaces="true" %>
 
-<%
-	String uId = (String)session.getAttribute("u_id");
+<%	
 	
-	int bmNum = 0;
-	
+	int bmNum = 0;	
 	String str = request.getParameter("bmNum");
 	
 	if(str!=null){
 		bmNum = Integer.parseInt(str);
 	}
-	
 	ShowPostService service = ShowPostService.getInstance();
 	BoardPost post  = service.showPost(bmNum);
 %>
@@ -40,15 +37,24 @@
 					<div id="title">
 						음악 관련 게시판 
 					</div>
-					<form action="confirmModify.jsp" method="">
-						<table border="1px" style="border-collase:collapse">
+					<form action="confirmModify.jsp" method="post">
+						<table border="1" style="border-collase:collapse">
+							<input type="hidden" name="bmNum" value="<%= bmNum %>">
 							<tr>
 								<th>제목</th>
 								<td style="width: 500px;"><input type="text" value="<%=post.getBmTitle() %>" name="bmTitle"></td>
 							</tr>
 							<tr>
-								<th>평점</th>
-								<td><input type="text" value="<%=post.getBmStar() %>" name="bmStar"></td>
+								<th>별점</th>
+								<td>
+										<select name="bmStar" value="<%=post.getBmStar()%>">
+											<option value="5">5</option>
+											<option value="4">4</option>
+											<option value="3">3</option>
+											<option value="2">2</option>
+											<option value="1">1</option>										
+										</select>
+									</td>
 							</tr>
 							<tr>
 								<th>음악코드</th>

@@ -45,16 +45,26 @@
 						<%=post.getBmNum() %>
 					</div>
 					<div>
+					음악코드
+						<%=post.getHmNum() %>
+					</div>
+					<div>
 					제목
 						<%=post.getBmTitle() %>
 					</div>
 					<div>
 					작성자
-						<%=post.getBmTitle() %>
+						<%=post.getuId() %>
 					</div>
 					<div>
 					내용
+						<p>
+						<span>앨범 제목 : </span>
+						<%=post.getmName() %><br>
+						<img src="<%=post.getmPhoto() %>" alt="<%=post.getmName() %>이미지" width="250"><br>
 						<%=post.getBmCont() %>
+												
+						
 					</div>
 					<div>
 					평점
@@ -67,6 +77,7 @@
 					
 						
 				</div>
+				<% %>
 				<a style="background-color:red" href="confirmDelete.jsp?bmNum=<%=post.getBmNum()%>">글삭제</a>
 				<a style="background-color:red" href="modifyForm.jsp?bmNum=<%=post.getBmNum()%>">글수정</a>
 				

@@ -29,6 +29,7 @@ public class DeletePostListService {
 			conn.setAutoCommit(false);
 
 			BoardMusicDao dao = BoardMusicDao.getInstance();
+			BoardPost post = new BoardPost();
 
 			if(post != null) {
 				rCnt = dao.deletePost(conn, bmNum);

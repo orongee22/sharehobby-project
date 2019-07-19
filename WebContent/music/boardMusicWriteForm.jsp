@@ -48,6 +48,7 @@
 			</div>
 		</div>
 		<div id="main">
+			<% if(uId != null) { %>
 			<div id="container">
 								
 					<div id="board-list">
@@ -55,10 +56,10 @@
 						<form action="confirmInsert.jsp" method="post">
 							<table border="1" style="border-collapse: collapse">
 								<tr>
-									<td></td>
+									<td>작성자</td>
 									<!-- 회원번호 hidden값으로 받아서 처리함. -->
 									<!-- session login정보 가져와서 처리함 -->
-									<td><input type="text" name="uNum" value="<%= uNum %>"></td>
+									<td><input type="hidden" name="uNum" value="<%= uNum %>"><%=uId %></td>
 								</tr>
 								<tr>
 									<td>제목</td>
@@ -98,6 +99,8 @@
 		<div id="footer">
 			
 		</div>
+		<% } else { %>
+		<div>로그인 된 회원만 이용 가능한 서비스 입니다. 로그인 하세요. </div>
 	</div>
 </body>
 </html>

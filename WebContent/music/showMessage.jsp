@@ -27,7 +27,7 @@
 <h1>
 		<%= cnt > 0? "방명록에 메시지를 남겼습니다." : "메시지 등록에 실패했습니다."%>
 	</h1>
-	<a href="boardMusicListView.jsp">목록으로 돌아가기</a>
+	<a href="boardMusicList.jsp">목록으로 돌아가기</a>
 
 
 

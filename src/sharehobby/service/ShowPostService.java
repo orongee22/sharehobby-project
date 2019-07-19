@@ -23,14 +23,11 @@ public class ShowPostService {
 			BoardMusicDao dao = BoardMusicDao.getInstance();
 			conn = ConnectionProvider.getConnection();
 			
-			post = dao.select(conn, bmNum);
+			post = dao.selectPost(conn, bmNum);
 		
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		
-		
-		
 		
 		return post;
 	}
