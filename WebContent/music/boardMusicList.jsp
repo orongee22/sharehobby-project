@@ -38,9 +38,9 @@
 
 </head>
 <body>
+	<!-- 로그인 된 id가 있을 경우 페이징 처리 -->
+	<% if(uId != null){ %>
 	
-	<%
-		if(uId != null){ %>
 	<%@include file="../frame/header.jsp" %>
 	<%@include file="../frame/nav.jsp" %>
 		<div id="main">
@@ -56,6 +56,14 @@
 						<div id="content-wrap">	
 					<%	} else { %>
 							<p><%=viewData.getPostTotalCount() %>개의 게시글이 있습니다.</p>
+							<div class="input-text-wrapper">
+								<select name="searchList">
+									<option value="srchTitle">제목</option>
+									<option value="srchCont">내용</option>
+								</select>
+								<input type="text" class="box-input focus" name="input ">
+								<input type="submit">
+							</div>
 							<table border="1" style="border-collapse:collapse">
 								<thead>
 									<tr>
@@ -67,9 +75,7 @@
 									</tr>
 								</thead>
 								<tbody>
-						<%
-							for(BoardPost postlist : viewData.getPostList()){ 
-						%>
+						<% for(BoardPost postlist : viewData.getPostList()){ %>
 									<tr>
 										<td><%= postlist.getBmNum() %></td>
 										<td><%= postlist.getuId() %></td>
@@ -77,13 +83,10 @@
 										<td><a href="viewPostContent.jsp?bmNum=<%=postlist.getBmNum()%>"><%= postlist.getBmTitle() %></a></td>
 										<td><%= postlist.getBmTime() %></td>
 									</tr>
-						<%	}
-						%>
+						<%	} %>
 								</tbody>
 							</table>
-						<%	
-							}
-						%>
+						<%	} %>
 						</div>
 						<%
 						for(int i=1;i<=viewData.getPageTotalCount();i++){
@@ -93,17 +96,17 @@
 						}
 						%>	
 				</div>
-				
 			</div>
 		<div id="footer">
 		</div>
-		<% } else {
-			
-		%>
+		
+		<% } else {%>
+		
 		<script>
 			alert("해당 서비스는 로그인 한 회원만 이용 가능합니다.");
 			location.href="notLogin.jsp";
 		</script>
+		
 		<% } %>
 </body>
 </html>

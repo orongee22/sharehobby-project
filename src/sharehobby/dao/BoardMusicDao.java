@@ -37,8 +37,6 @@ public class BoardMusicDao {
 			pstmt.setString(3,post.getBmTitle());
 			pstmt.setFloat(4, post.getBmStar());
 			pstmt.setString(5,post.getBmCont());
-//			pstmt.setDate(6, post.getBmTime());
-			System.out.println("insert : "+pstmt);
 			rCnt = pstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -120,8 +118,7 @@ public class BoardMusicDao {
 				post.setBmStar(rs.getFloat(5));
 				post.setBmCont(rs.getString(6));
 				post.setBmTime(rs.getDate(7));
-				
-				
+
 			}
 			
 		} catch (SQLException e) {

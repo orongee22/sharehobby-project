@@ -77,9 +77,11 @@
 					
 						
 				</div>
-				<% %>
-				<a style="background-color:red" href="confirmDelete.jsp?bmNum=<%=post.getBmNum()%>">글삭제</a>
-				<a style="background-color:red" href="modifyForm.jsp?bmNum=<%=post.getBmNum()%>">글수정</a>
+				<a style="background-color:red" href="boardMusicList.jsp">목록보기</a>
+				<% if(uId != null && uId.equals(post.getuId())) { %>
+					<a style="background-color:red" href="confirmDelete.jsp?bmNum=<%=post.getBmNum()%>">글삭제</a>
+					<a style="background-color:red" href="modifyForm.jsp?bmNum=<%=post.getBmNum()%>">글수정</a>
+				<% } %>
 				
 			</div>
 		<div id="footer">

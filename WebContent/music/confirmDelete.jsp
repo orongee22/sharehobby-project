@@ -27,7 +27,7 @@
 </head>
 <body>
 	<script>
-	
+
 <% 
 	
 	if(rCnt>0){

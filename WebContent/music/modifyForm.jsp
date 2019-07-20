@@ -9,7 +9,7 @@
 <%@ page trimDirectiveWhitespaces="true" %>
 
 <%	
-	
+	String uId = (String)session.getAttribute("u_id");
 	int bmNum = 0;	
 	String str = request.getParameter("bmNum");
 	
@@ -33,6 +33,7 @@
 	<%@include file="../frame/header.jsp" %>
 	<%@include file="../frame/nav.jsp" %>
 		<div id="main">
+			<% if(uId !=null && uId.equals(post.getuId())){ %>
 			<div class="wrap">
 					<div id="title">
 						음악 관련 게시판 
@@ -71,7 +72,12 @@
 						</table>
 					</form>
 			</div>
-				
+		<% } else { %>
+			<script>
+				alert("잘못된 접근입니다.");
+				location.go(-1);
+			</script>
+		<% } %>	
 		</div>
 		<div id="footer">
 		</div>

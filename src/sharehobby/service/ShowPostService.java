@@ -1,7 +1,6 @@
 package sharehobby.service;
 
 import java.sql.Connection;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import jdbc.ConnectionProvider;
@@ -24,6 +23,7 @@ public class ShowPostService {
 			conn = ConnectionProvider.getConnection();
 			
 			post = dao.selectPost(conn, bmNum);
+			
 		
 		} catch (SQLException e) {
 			e.printStackTrace();

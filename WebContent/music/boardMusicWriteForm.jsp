@@ -100,8 +100,8 @@
 			
 		</div>
 		<% } else { %>
+			<div>로그인 된 회원만 이용 가능한 서비스 입니다. <a href="${pageContext.request.contextPath}/member/loginForm.jsp">로그인 하세요.</a> </div>
 		<%} %>
-		<div>로그인 된 회원만 이용 가능한 서비스 입니다. 로그인 하세요. </div>
 	</div>
 </body>
 </html>
