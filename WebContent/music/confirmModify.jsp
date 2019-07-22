@@ -1,4 +1,4 @@
-<%@page import="sharehobby.service.ModifyPostService"%>
+<%@page import="sharehobby.service.music.ModifyPostService"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
@@ -6,7 +6,7 @@
 
 %>
 
-<jsp:useBean id="modifypost" class="sharehobby.model.BoardPost" />
+<jsp:useBean id="modifypost" class="sharehobby.model.music.BoardPost" />
 <jsp:setProperty property="*" name="modifypost" />
 <jsp:setProperty property="*" name="modifypost" />
 <%
@@ -19,6 +19,7 @@
 	}
 	ModifyPostService service = ModifyPostService.getInstance();
 	int cnt = service.modifyPost(bmNum, modifypost);
+	
 %>
 <!DOCTYPE html>
 <html>
@@ -42,7 +43,7 @@
 		
 	<%} %>
 	
-	location.href="boardMusicList.jsp";
+	location.href="${pageContext.request.contextPath}/music/boardMusicList.jsp";
 	</script>
 </body>
 </html>

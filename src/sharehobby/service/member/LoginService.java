@@ -1,12 +1,12 @@
-package sharehobby.service;
+package sharehobby.service.member;
 
 import java.sql.Connection;
 import java.sql.SQLException;
 
 import jdbc.ConnectionProvider;
-import sharehobby.dao.MemberDao;
-import sharehobby.model.LoginInfo;
-import sharehobby.model.MemberInfo;
+import sharehobby.dao.member.MemberDao;
+import sharehobby.model.member.LoginInfo;
+import sharehobby.model.member.MemberInfo;
 
 public class LoginService {
 	private static LoginService service = new LoginService();
