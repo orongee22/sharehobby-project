@@ -25,7 +25,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="../css/default_board.css">
+<link rel="stylesheet" href="../css/default_board_music.css">
 <script src="https://code.jquery.com/jquery-2.2.4.js"></script>
 
 </head>
@@ -49,7 +49,7 @@
 						</tr>
 						<tr>
 							<td>제목</td>
-							<td><input type="text" name="bmTitle" style="width: 400px"></td>
+							<td><input type="text" name="bmTitle" style="width: 400px" required></td>
 						</tr>
 						<tr>
 							<td>별점</td>
@@ -89,5 +89,12 @@
 			하세요.</a>
 	</div>
 	<%} %>
+	<script>
+		$(document).ready(function(){
+			$('input[type=reset]').click(function(){
+				history.go(-1);
+			});
+		});
+		</script>
 </body>
 </html>
